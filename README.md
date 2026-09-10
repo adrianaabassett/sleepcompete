@@ -20,31 +20,38 @@ Have you struggled with sleep? Most Americans get less sleep than they truly nee
 ![Design image](SignIn.png)
 ![Design image](Howtogetmoresleep.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-```mermaid
-sequenceDiagram
+## sequenceDiagram
     actor You
     actor Website
-    You->>Website: Replace this with your design
-```
+    actor Server
+    You->>Website: Logs sleep duration (e.g., 8.5 hours)
+    Website->>Server: POST /api/sleep
+    Server-->>Website: Returns updated Leaderboard Data
+    Website->>You: Displays your new rank
+    Server->>Website: WebSocket broadcast to friends: "User just logged 8.5 hours!"
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Secure Login: Users can create an account and log in securely.
+
+- Sleep Tracking: A simple interface to manually log hours slept each night.
+
+- Social Connections: Users can find and add friends.
+
+- Dynamic Leaderboard: A ranking system that compares your weekly sleep average with your friends.
+  
+- Weekly/Monthly Graph: A graph that compares your weekly/monthly sleep data with your friends.
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Uses correct HTML structural elements to build the application pages. See Above. 
+- **CSS** - Styling the application to look clean, modern, and restful. Uses Flexbox/Grid for responsive design on mobile and desktop, similar to my previously made portfolio website.
+- **React** - Provides a smooth, single-page application experience. Handles routing between the login, dashboard, and friends list, as well as reactive UI state for leaderboard updates.
+- **Service** - Node.js/Express backend service to provide endpoints for user authentication, retrieving sleep data, and logging new sleep entries.
+- **DB/Login** - MongoDB database to store user profiles, friend connections, and historical sleep logs. Secure user registration and login using bcrypt for password hashing.
+- **WebSocket** - Real-time updates of scores on the leaderboards and graphs.
 
 ## 🚀 Specification Deliverable
 
