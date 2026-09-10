@@ -14,11 +14,11 @@ Have you struggled with sleep? Most Americans get less sleep than they truly nee
 
 ![Design image](1.png)
 ![Design image](Friends.png)
-![Design image](Log Times.png)
-![Design image](My Scores.png)
-![Design image](My Scores (2).png)
-![Design image](Sign In.png)
-![Design image](How to get more sleep.png)
+![Design image](LogTimes.png)
+![Design image](MyScores.png)
+![Design image](MyScores(2).png)
+![Design image](SignIn.png)
+![Design image](Howtogetmoresleep.png)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
