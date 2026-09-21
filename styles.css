@@ -141,3 +141,7 @@ button {
 button:hover {
   background-color: #d35400;
 }
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
