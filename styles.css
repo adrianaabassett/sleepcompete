@@ -91,3 +91,16 @@ main p {
   margin: 0 auto 1.5rem auto;
   border-radius: 8px;
 }
+
+#notifications, #sleep-tips {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--panel-background);
+  margin-bottom: 1rem;
+}
+
+#sleep-tips {
+  background-color: #2b2d31;
+}
+
