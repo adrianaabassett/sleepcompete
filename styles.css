@@ -1,9 +1,24 @@
-#notifications {
-    border: 1px solid #ccc;
-    padding: 10px;
+:root {
+  --background-color: #201d1a;
+  --text-primary: #d4c09d;
+  --text-secondary: #9c8b73;
+  --accent-color: #e67e22;
+  --panel-background: #2b2723;
+  --border-color: #3b3530;
 }
 
-#sleep-tips {
-    background-color: #201d1a;
-    padding: 10px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
