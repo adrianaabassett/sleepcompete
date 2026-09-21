@@ -50,7 +50,7 @@ nav ul {
 
 @media (min-width: 600px) {
   nav ul {
-    flex-direction: row; /* Row for larger screens */
+    flex-direction: row; 
     justify-content: center;
   }
 }
@@ -69,5 +69,18 @@ nav a {
 
 nav a:hover, nav a:focus {
   background-color: var(--border-color);
+}
+
+
+main h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+main p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
 }
 
