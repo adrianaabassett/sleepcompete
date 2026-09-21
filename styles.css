@@ -104,3 +104,10 @@ main p {
   background-color: #2b2d31;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
