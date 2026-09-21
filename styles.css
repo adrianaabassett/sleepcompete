@@ -22,3 +22,10 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
+
+header {
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
