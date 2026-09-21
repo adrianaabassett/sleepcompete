@@ -162,3 +162,9 @@ th, td {
 th {
   background-color: var(--panel-background);
 }
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 1.5rem;
+}
