@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SleepCompete - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>SleepCompete Dashboard</h1>
-        <p>Welcome back, <strong>SleepyUser99</strong>!</p>
+        <p>Welcome back, <strong>Add username Here</strong>!</p>
     </header>
     
     <nav>
-        <a href="index.html">Home</a> | 
-        <a href="login.html">Login</a> | 
-        <a href="dashboard.html">Dashboard & Leaderboard</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html">Dashboard & Leaderboard</a></li>
+        </ul>
     </nav>
     
     <main>
@@ -52,7 +55,7 @@
 
         <section>
             <h2>Live Friend Activity</h2>
-            <div id="notifications" style="border: 1px solid #ccc; padding: 10px;">
+            <div id="notifications">
                 <p><em>[Live] Friend A just logged 8 hours!</em></p>
                 <p><em>[Live] Friend B just went to bed.</em></p>
             </div>
@@ -62,7 +65,7 @@
 
         <section>
             <h2>Daily Sleep Tips (via Health API)</h2>
-            <div id="sleep-tips" style="background-color: #f0f8ff; padding: 10px;">
+            <div id="sleep-tips">
                 <p><strong>Tip of the day:</strong> Avoid screens 30 minutes before bed to improve sleep quality.</p>
             </div>
         </section>
