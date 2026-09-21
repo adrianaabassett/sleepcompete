@@ -81,9 +81,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [ ] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
 - [X] **HTML pages** - I made main, login, and dashboard pages. 
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
+- [X] **Proper HTML element usage** - Lots of juicy HTML elements.
+- [X] **Links** - Links to other pages and github
+- [X] **Text** - Text for the page and sleep advice
 - [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
 - [ ] **Images** - I did not complete this part of the deliverable.
 - [ ] **Login placeholder** - I did not complete this part of the deliverable.
