@@ -79,16 +79,16 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [X] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
 - [X] **HTML pages** - I made main, login, and dashboard pages. 
 - [X] **Proper HTML element usage** - Lots of juicy HTML elements.
 - [X] **Links** - Links to other pages and github
 - [X] **Text** - Text for the page and sleep advice
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [X] **3rd party API placeholder** - Added a placeholder for Daily Sleep Tips via an external Health API.
+- [X] **Images** - Added and committed `sleepychicken.png` to the repository and referenced it in index.html.
+- [X] **Login placeholder** - Implemented a login form with proper label associations in login.html.
+- [X] **DB data placeholder** - Created a table in dashboard.html to represent data stored in the database.
+- [X] **WebSocket placeholder** - Added a notification div in dashboard.html to serve as a placeholder for real-time data.
 
 ## 🚀 CSS deliverable
 
