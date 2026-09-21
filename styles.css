@@ -110,4 +110,8 @@ form {
   gap: 1rem;
 }
 
-
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
