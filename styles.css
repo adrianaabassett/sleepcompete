@@ -30,8 +30,12 @@ header {
   margin-bottom: 1rem;
 }
 
-
 header h1 {
   font-size: 1.5rem;
   color: var(--text-primary);
+}
+
+header p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
