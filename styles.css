@@ -176,3 +176,7 @@ footer {
 footer a {
   color: var(--accent-color);
 }
+tbody tr:first-child {
+  font-weight: bold;
+  color: gold; 
+}
