@@ -188,3 +188,8 @@ section h2:first-of-type {
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 5px;
 }
+tbody tr:hover,
+tbody tr:focus-within {
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
