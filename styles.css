@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
 :root {
   --background-color: #201d1a;
   --text-primary: #d4c09d;
@@ -16,7 +19,7 @@
 body {
   background-color: var(--background-color);
   color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Playfair Display', serif;  line-height: 1.6;
   line-height: 1.6;
   padding: 1rem;
   max-width: 800px;
@@ -122,6 +125,7 @@ label {
 }
 
 input {
+  font-family: inherit;
   padding: 0.75rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -129,6 +133,7 @@ input {
   color: var(--text-primary);
 }
 button {
+  font-family: inherit;
   padding: 0.75rem;
   border-radius: 8px;
   border: none;
