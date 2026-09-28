@@ -4,79 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SleepCompete - Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+      body {
+        font-family: 'Playfair Display', serif;
+      }
+    </style>
+  
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: '#201d1a',
+              primary: '#d4c09d',
+              secondary: '#9c8b73',
+              accent: '#e67e22',
+              accenthover: '#d35400',
+              panel: '#2b2723',
+              bordercol: '#3b3530'
+            }
+          }
+        }
+      }
+    </script>
 </head>
-<body>
-    <header>
-        <h1>SleepCompete Dashboard</h1>
-        <p>Welcome back, <strong>SleepyUser99</strong>!</p>
+<body class="bg-background text-primary p-4 md:p-8 max-w-4xl mx-auto leading-relaxed">
+    
+    <header class="text-center py-6 border-b border-bordercol mb-8">
+        <h1 class="text-4xl font-bold mb-2">SleepCompete Dashboard</h1>
+        <p class="text-secondary text-lg">Welcome back, <strong class="text-primary">SleepyUser99</strong>!</p>
     </header>
     
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="dashboard.html">Dashboard & Leaderboard</a></li>
+    <nav class="mb-10">
+        <ul class="list-none flex flex-col md:flex-row gap-4 justify-center m-0 p-0">
+            <li>
+                <a href="index.html" class="block text-center p-3 bg-panel text-primary no-underline rounded-lg border border-bordercol transition-colors duration-200 hover:bg-bordercol">Home</a>
+            </li>
+            <li>
+                <a href="login.html" class="block text-center p-3 bg-panel text-primary no-underline rounded-lg border border-bordercol transition-colors duration-200 hover:bg-bordercol">Login</a>
+            </li>
+            <li>
+                <a href="dashboard.html" class="block text-center p-3 bg-panel text-primary no-underline rounded-lg border border-bordercol transition-colors duration-200 hover:bg-bordercol">Dashboard & Leaderboard</a>
+            </li>
         </ul>
     </nav>
     
     <main>
-        <section>
-            <h2>Dynamic Leaderboard (Weekly Sleep Averages)</h2>
-            <div class="table-container">
-                <table>
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Dynamic Leaderboard (Weekly Sleep Averages)</h2>
+            <div class="overflow-x-auto rounded-lg shadow-lg">
+                <table class="w-full border-collapse border border-bordercol min-w-[500px]">
                     <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Friend</th>
-                            <th>Average Sleep (Hours)</th>
+                        <tr class="bg-panel">
+                            <th class="border border-bordercol p-3 text-left font-semibold">Rank</th>
+                            <th class="border border-bordercol p-3 text-left font-semibold">Friend</th>
+                            <th class="border border-bordercol p-3 text-left font-semibold">Average Sleep (Hours)</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Alice</td>
-                            <td>8.2</td>
+                        <tr class="bg-background hover:bg-panel transition-colors duration-200">
+                            <td class="border border-bordercol p-3 text-accent font-bold">1</td>
+                            <td class="border border-bordercol p-3">Alice</td>
+                            <td class="border border-bordercol p-3">8.2</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Bob</td>
-                            <td>7.5</td>
+                        <tr class="bg-background hover:bg-panel transition-colors duration-200">
+                            <td class="border border-bordercol p-3 font-bold">2</td>
+                            <td class="border border-bordercol p-3">Bob</td>
+                            <td class="border border-bordercol p-3">7.5</td>
                         </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>You</td>
-                            <td>7.1</td>
+                        <tr class="bg-background hover:bg-panel transition-colors duration-200">
+                            <td class="border border-bordercol p-3 font-bold">3</td>
+                            <td class="border border-bordercol p-3 text-accent">You</td>
+                            <td class="border border-bordercol p-3 text-accent">7.1</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <br>
-
-        <section>
-            <h2>Live Friend Activity</h2>
-            <div id="notifications">
-                <p><em>[Live] Friend A just logged 8 hours!</em></p>
-                <p><em>[Live] Friend B just went to bed.</em></p>
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Your Recent Sleep History</h2>
+            <div class="bg-panel border border-bordercol p-6 rounded-lg shadow-lg">
+                <div class="space-y-4">
+                    <!-- Chart Row: Monday -->
+                    <div class="flex items-center">
+                        <span class="w-16 text-secondary text-sm">Mon</span>
+                        <div class="flex-1 bg-background rounded-r-md h-6 border border-bordercol flex items-center">
+                            <div class="bg-accent h-full rounded-r-md" style="width: 71%;"></div>
+                            <span class="ml-3 text-xs text-primary">7.1h</span>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="text-center mt-6">
+                <button class="px-6 py-3 bg-accent hover:bg-accenthover text-white font-bold rounded-lg transition-colors duration-200 shadow-lg">
+                    Log Tonight's Sleep
+                </button>
             </div>
         </section>
 
-        <br>
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Live Friend Activity</h2>
+            <div id="notifications" class="p-5 rounded-lg border border-bordercol bg-panel shadow-lg space-y-2">
+                <p class="text-secondary"><em><span class="text-accent">[Live]</span> Friend A just logged 8 hours!</em></p>
+                <p class="text-secondary"><em><span class="text-accent">[Live]</span> Friend B just went to bed.</em></p>
+            </div>
+        </section>
 
-        <section>
-            <h2>Daily Sleep Tips (via Health API)</h2>
-            <div id="sleep-tips">
-                <p><strong>Tip of the day:</strong> Avoid screens 30 minutes before bed to improve sleep quality.</p>
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Daily Sleep Tips (via Health API)</h2>
+            <div id="sleep-tips" class="p-5 rounded-lg border border-bordercol bg-panel shadow-lg">
+                <p><strong class="text-accent">Tip of the day:</strong> Avoid screens 30 minutes before bed to improve sleep quality.</p>
             </div>
         </section>
     </main>
     
-    <footer>
-        <hr>
-        <p>Created by Adriana Bassett</p>
-        <a href="https://github.com/adrianaabassett/sleepcompete">GitHub Repository</a>
+    <footer class="text-center py-6 border-t border-bordercol mt-10">
+        <p class="mb-2 text-secondary">Created by Adriana Bassett</p>
+        <a href="https://github.com/adrianaabassett/sleepcompete" class="text-accent hover:text-accenthover transition-colors duration-200">GitHub Repository</a>
     </footer>
 </body>
 </html>
