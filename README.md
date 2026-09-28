@@ -79,28 +79,28 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [X] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
 - [X] **HTML pages** - I made main, login, and dashboard pages. 
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [X] **Proper HTML element usage** - Lots of juicy HTML elements.
+- [X] **Links** - Links to other pages and github
+- [X] **Text** - Text for the page and sleep advice
+- [X] **3rd party API placeholder** - Added a placeholder for Daily Sleep Tips via an external Health API.
+- [X] **Images** - Added and committed `sleepychicken.png` to the repository and referenced it in index.html.
+- [X] **Login placeholder** - Implemented a login form with proper label associations in login.html.
+- [X] **DB data placeholder** - Created a table in dashboard.html to represent data stored in the database.
+- [X] **WebSocket placeholder** - Added a notification div in dashboard.html to serve as a placeholder for real-time data.
 
 ## 🚀 CSS deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
-- [ ] **Visually appealing colors and layout. No overflowing elements.** - I did not complete this part of the deliverable.
-- [ ] **Use of a CSS framework** - I did not complete this part of the deliverable.
-- [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing using flexbox and/or grid display** - I did not complete this part of the deliverable.
-- [ ] **Use of a imported font** - I did not complete this part of the deliverable.
-- [ ] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I did not complete this part of the deliverable.
+- [X] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [X] **Visually appealing colors and layout. No overflowing elements.**
+- [X] **Use of a CSS framework** 
+- [X] **All visual elements styled using CSS** 
+- [X] **Responsive to window resizing using flexbox and/or grid display** 
+- [X] **Use of a imported font**
+- [X] **Use of different types of selectors including element, class, ID, and pseudo selectors** 
 
 ## 🚀 React part 1: Routing deliverable
 
