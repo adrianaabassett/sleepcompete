@@ -180,3 +180,6 @@ tbody tr:first-child {
   font-weight: bold;
   color: gold; 
 }
+tbody tr:nth-child(-n+3) {
+  background-color: var(--highlight-color);
+}
