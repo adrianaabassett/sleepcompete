@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
@@ -6,9 +5,9 @@
   --text-primary: #d4c09d;
   --text-secondary: #9c8b73;
   --accent-color: #e67e22;
+  --accent-hover: #d35400;
   --panel-background: #2b2723;
   --border-color: #3b3530;
- 
   --highlight-color: #2f2a25; 
   --hover-color: #3a332d;     
 }
@@ -29,6 +28,7 @@ body {
   margin: 0 auto;
 }
 
+/* Header & Navigation */
 header {
   text-align: center;
   padding: 1rem 0;
@@ -73,10 +73,10 @@ nav a {
   transition: background-color 0.2s;
 }
 
-nav a:hover, nav a:focus {
+nav a:hover, 
+nav a:focus {
   background-color: var(--border-color);
 }
-
 
 main h2 {
   font-size: 1.25rem;
@@ -90,6 +90,12 @@ main p {
   color: var(--text-secondary);
 }
 
+section h2:first-of-type {
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
 .responsive-img {
   max-width: 100%;
   height: auto;
@@ -98,7 +104,8 @@ main p {
   border-radius: 8px;
 }
 
-#notifications, #sleep-tips {
+#notifications, 
+#sleep-tips {
   padding: 1rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -106,10 +113,7 @@ main p {
   margin-bottom: 1rem;
 }
 
-#sleep-tips {
-  background-color: #2b2d31;
-}
-
+/* Form Controls */
 form {
   display: flex;
   flex-direction: column;
@@ -127,37 +131,43 @@ label {
   color: var(--text-secondary);
 }
 
-input {
-  font-family: inherit;
-  padding: 0.75rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background-color: #201d1a;
-  color: var(--text-primary);
-}
+input,
 button {
   font-family: inherit;
   padding: 0.75rem;
   border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+input {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+button {
   border: none;
   background-color: var(--accent-color);
-  color: white;
+  color: #ffffff;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s;
 }
+
 button:hover {
-  background-color: #d35400;
+  background-color: var(--accent-hover);
 }
+
 .table-container {
   overflow-x: auto;
   margin-bottom: 1.5rem;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
   min-width: 400px;
 }
+
 table, th, td {
   border: 1px solid var(--border-color);
 }
@@ -170,33 +180,22 @@ th, td {
 th {
   background-color: var(--panel-background);
 }
-footer {
-  text-align: center;
-  padding: 1rem 0;
-  border-top: 1px solid var(--border-color);
-  margin-top: 1.5rem;
-}
-footer a {
-  color: var(--accent-color);
-}
+
 tbody tr:first-child {
   font-weight: bold;
   color: gold; 
 }
+
 tbody tr:nth-child(-n+3) {
   background-color: var(--highlight-color);
 }
-section h2:first-of-type {
-  text-transform: uppercase;
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 5px;
-}
+
 tbody tr:hover,
 tbody tr:focus-within {
   background-color: var(--hover-color);
   cursor: pointer;
 }
-/* Custom Sleep History Chart */
+
 .sleep-history-container {
   background-color: var(--panel-background);
   border: 1px solid var(--border-color);
@@ -241,4 +240,15 @@ tbody tr:focus-within {
   font-size: 0.8rem;
   color: var(--text-primary);
   width: 40px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 1.5rem;
+}
+
+footer a {
+  color: var(--accent-color);
 }
