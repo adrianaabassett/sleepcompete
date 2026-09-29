@@ -22,7 +22,7 @@
 body {
   background-color: var(--background-color);
   color: var(--text-primary);
-  font-family: 'Playfair Display', serif;  line-height: 1.6;
+  font-family: 'Playfair Display', serif;
   line-height: 1.6;
   padding: 1rem;
   max-width: 800px;
