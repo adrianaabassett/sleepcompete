@@ -106,16 +106,28 @@ section h2:first-of-type {
   border-radius: 8px;
 }
 
-/* Replaced IDs with a single class for better specificity */
-.content-panel {
+/* 1. New Utility Class to consolidate padding and background */
+.card-style {
   padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
   background-color: var(--panel-background);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Form Controls */
+/* 2. Consolidated redundant border rules */
+.card-style,
+input,
+button {
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+/* Form Controls & Form Container */
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -137,8 +149,6 @@ input,
 button {
   font-family: inherit;
   padding: 0.75rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
 }
 
 input {
@@ -159,7 +169,6 @@ button:hover {
   background-color: var(--accent-hover);
 }
 
-/* Added active state for tactile feedback */
 button:active {
   transform: scale(0.98);
   background-color: var(--accent-hover);
@@ -205,12 +214,10 @@ tbody tr:focus-within {
   cursor: pointer;
 }
 
+/* Custom Sleep History Chart */
 .sleep-history-container {
-  background-color: var(--panel-background);
-  border: 1px solid var(--border-color);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .sleep-row {
@@ -251,11 +258,19 @@ tbody tr:focus-within {
   width: 40px;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem 0;
   border-top: 1px solid var(--border-color);
   margin-top: 1.5rem;
+}
+
+footer hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin-bottom: 1rem;
 }
 
 footer a {

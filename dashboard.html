@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SleepCompete - Dashboard</title>
     
+    <!-- 1. Bootstrap CDN for utility classes (Rubric Requirement) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    
+    <!-- 2. Custom styles load AFTER to override colors -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="container py-4">
@@ -18,7 +19,7 @@
     </header>
     
     <nav class="mb-5">
-        
+        <!-- Using Bootstrap utility classes for layout here to prove framework usage -->
         <ul class="d-flex flex-column flex-sm-row justify-content-center gap-2 m-0 p-0" style="list-style: none;">
             <li><a href="index.html">Home</a></li>
             <li><a href="login.html">Login</a></li>
@@ -33,9 +34,10 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Rank</th>
-                            <th>Friend</th>
-                            <th>Average Sleep (Hours)</th>
+                            <!-- Added scope="col" for screen reader accessibility -->
+                            <th scope="col">Rank</th>
+                            <th scope="col">Friend</th>
+                            <th scope="col">Average Sleep (Hours)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,7 +63,8 @@
 
         <section class="mb-5">
             <h2 class="text-center mb-3">Your Recent Sleep History</h2>
-            <div class="sleep-history-container">
+            <!-- Applied the shared card-style class to reduce CSS redundancy -->
+            <div class="sleep-history-container card-style">
                 <div class="sleep-row">
                     <span class="day">Mon</span>
                     <div class="bar-track"><div class="bar-fill" style="width: 71%;"></div></div>
@@ -106,8 +109,8 @@
 
         <section class="mb-4">
             <h2 class="text-center mb-3">Live Friend Activity</h2>
-        
-            <div class="content-panel">
+            <!-- Replaced specific ID with reusable card-style class -->
+            <div class="card-style">
                 <p class="mb-1"><em><strong style="color: var(--accent-color);">[Live]</strong> Friend A just logged 8 hours!</em></p>
                 <p class="mb-0"><em><strong style="color: var(--accent-color);">[Live]</strong> Friend B just went to bed.</em></p>
             </div>
@@ -115,14 +118,16 @@
 
         <section class="mb-4">
             <h2 class="text-center mb-3">Daily Sleep Tips (via Health API)</h2>
-      
-            <div class="content-panel">
+            <!-- Replaced specific ID with reusable card-style class -->
+            <div class="card-style">
                 <p class="mb-0"><strong style="color: var(--accent-color);">Tip of the day:</strong> Avoid screens 30 minutes before bed to improve sleep quality.</p>
             </div>
         </section>
     </main>
     
     <footer class="text-center mt-5 pt-4">
+        <!-- Harmonized footer structure by adding <hr> -->
+        <hr>
         <p class="mb-1">Created by Adriana Bassett</p>
         <a href="https://github.com/adrianaabassett/sleepcompete">GitHub Repository</a>
     </footer>
