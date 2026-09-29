@@ -8,6 +8,9 @@
   --accent-color: #e67e22;
   --panel-background: #2b2723;
   --border-color: #3b3530;
+ 
+  --highlight-color: #2f2a25; 
+  --hover-color: #3a332d;     
 }
 
 * {
