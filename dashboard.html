@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SleepCompete - Dashboard</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="container py-4">
     
-    <header>
+    <header class="text-center mb-4">
         <h1>SleepCompete Dashboard</h1>
         <p>Welcome back, <strong>SleepyUser99</strong>!</p>
     </header>
     
-    <nav>
-        <ul>
+    <nav class="mb-5">
+        
+        <ul class="d-flex flex-column flex-sm-row justify-content-center gap-2 m-0 p-0" style="list-style: none;">
             <li><a href="index.html">Home</a></li>
             <li><a href="login.html">Login</a></li>
             <li><a href="dashboard.html">Dashboard & Leaderboard</a></li>
@@ -22,8 +27,8 @@
     </nav>
     
     <main>
-        <section>
-            <h2>Dynamic Leaderboard (Weekly Sleep Averages)</h2>
+        <section class="mb-5">
+            <h2 class="text-center mb-3">Dynamic Leaderboard (Weekly Sleep Averages)</h2>
             <div class="table-container">
                 <table>
                     <thead>
@@ -54,8 +59,8 @@
             </div>
         </section>
 
-        <section>
-            <h2>Your Recent Sleep History</h2>
+        <section class="mb-5">
+            <h2 class="text-center mb-3">Your Recent Sleep History</h2>
             <div class="sleep-history-container">
                 <div class="sleep-row">
                     <span class="day">Mon</span>
@@ -94,29 +99,31 @@
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 1.5rem;">
+            <div class="text-center mt-4">
                 <button>Log Tonight's Sleep</button>
             </div>
         </section>
 
-        <section>
-            <h2>Live Friend Activity</h2>
-            <div id="notifications">
-                <p><em><strong style="color: var(--accent-color);">[Live]</strong> Friend A just logged 8 hours!</em></p>
-                <p><em><strong style="color: var(--accent-color);">[Live]</strong> Friend B just went to bed.</em></p>
+        <section class="mb-4">
+            <h2 class="text-center mb-3">Live Friend Activity</h2>
+        
+            <div class="content-panel">
+                <p class="mb-1"><em><strong style="color: var(--accent-color);">[Live]</strong> Friend A just logged 8 hours!</em></p>
+                <p class="mb-0"><em><strong style="color: var(--accent-color);">[Live]</strong> Friend B just went to bed.</em></p>
             </div>
         </section>
 
-        <section>
-            <h2>Daily Sleep Tips (via Health API)</h2>
-            <div id="sleep-tips">
-                <p><strong style="color: var(--accent-color);">Tip of the day:</strong> Avoid screens 30 minutes before bed to improve sleep quality.</p>
+        <section class="mb-4">
+            <h2 class="text-center mb-3">Daily Sleep Tips (via Health API)</h2>
+      
+            <div class="content-panel">
+                <p class="mb-0"><strong style="color: var(--accent-color);">Tip of the day:</strong> Avoid screens 30 minutes before bed to improve sleep quality.</p>
             </div>
         </section>
     </main>
     
-    <footer>
-        <p>Created by Adriana Bassett</p>
+    <footer class="text-center mt-5 pt-4">
+        <p class="mb-1">Created by Adriana Bassett</p>
         <a href="https://github.com/adrianaabassett/sleepcompete">GitHub Repository</a>
     </footer>
 </body>

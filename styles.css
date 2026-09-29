@@ -64,7 +64,7 @@ nav ul {
 nav a {
   display: block;
   text-align: center;
-  padding: 0.75rem;
+  padding: 0.75rem 1.5rem;
   background-color: var(--panel-background);
   color: var(--text-primary);
   text-decoration: none;
@@ -76,8 +76,10 @@ nav a {
 nav a:hover, 
 nav a:focus {
   background-color: var(--border-color);
+  color: var(--text-primary);
 }
 
+/* Main Content & Containers */
 main h2 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
@@ -104,9 +106,9 @@ section h2:first-of-type {
   border-radius: 8px;
 }
 
-#notifications, 
-#sleep-tips {
-  padding: 1rem;
+/* Replaced IDs with a single class for better specificity */
+.content-panel {
+  padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
   background-color: var(--panel-background);
@@ -150,13 +152,20 @@ button {
   color: #ffffff;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
 button:hover {
   background-color: var(--accent-hover);
 }
 
+/* Added active state for tactile feedback */
+button:active {
+  transform: scale(0.98);
+  background-color: var(--accent-hover);
+}
+
+/* Leaderboard Table */
 .table-container {
   overflow-x: auto;
   margin-bottom: 1.5rem;
@@ -183,7 +192,7 @@ th {
 
 tbody tr:first-child {
   font-weight: bold;
-  color: gold; 
+  color: #ffc107; 
 }
 
 tbody tr:nth-child(-n+3) {
@@ -251,4 +260,9 @@ footer {
 
 footer a {
   color: var(--accent-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
