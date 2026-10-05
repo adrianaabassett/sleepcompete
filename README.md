@@ -94,13 +94,13 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [X] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
-- [X] **Visually appealing colors and layout. No overflowing elements.**
-- [X] **Use of a CSS framework** 
-- [X] **All visual elements styled using CSS** 
-- [X] **Responsive to window resizing using flexbox and/or grid display** 
-- [X] **Use of a imported font**
-- [X] **Use of different types of selectors including element, class, ID, and pseudo selectors** 
+- [X] **I completed the prerequisites for this deliverable** (Simon deployed, GitHub link, Git commits) - Deployed Simon application, linked the GitHub repository, and committed all local code changes. 
+- [X] **Visually appealing colors and layout. No overflowing elements.** - Created a dark-mode palette using CSS custom properties (--background-color, --panel-background, --accent-color) and styled cards with horizontal scroll containers to prevent page overflow.
+- [X] **Use of a CSS framework** - Built a lightweight custom utility framework using CSS variables and reusable component classes like .card-style.
+- [X] **All visual elements styled using CSS** - Applied custom layout and typography styles across all UI components including headers, forms, navigation buttons, tables, custom chart bars, and footers.
+- [X] **Responsive to window resizing using flexbox and/or grid display** - Employed Flexbox layouts and media queries to ensure navigation, forms, and chart elements adapt seamlessly between mobile and desktop viewport sizes. 
+- [X] **Use of a imported font** - Imported Google Fonts' Playfair Display serif font and applied it globally across body text and headings.
+- [X] **Use of different types of selectors including element, class, ID, and pseudo selectors** - Utilized element selectors (body, button), class selectors (.card-style, .bar-fill), pseudo-classes (:hover, :active, :first-child, :nth-child), and the :root pseudo-class.
 
 ## 🚀 React part 1: Routing deliverable
 
