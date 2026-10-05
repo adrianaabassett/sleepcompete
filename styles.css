@@ -281,3 +281,71 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+/* Interactive Weekly Chart Styles */
+.sleep-chart-container {
+  height: 220px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.chart-col {
+  flex: 1;
+  cursor: pointer;
+  padding: 6px 2px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.chart-col:hover {
+  background-color: var(--hover-color);
+  transform: translateY(-2px);
+}
+
+.chart-col.selected {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--accent-color);
+}
+
+.chart-col .bar-track {
+  width: 22px;
+  height: 130px;
+  background-color: var(--panel-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.chart-col .bar-fill {
+  width: 100%;
+  background-color: var(--accent-color);
+  border-radius: 12px;
+  transition: height 0.4s ease-in-out, background-color 0.3s ease;
+}
+
+/* Color indicator when 8+ hour goal is met */
+.chart-col.goal-met .bar-fill {
+  background-color: #27ae60;
+}
+
+.day-label {
+  color: var(--text-secondary);
+}
+
+.bar-value {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.form-select, .form-control {
+  background-color: var(--background-color) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.form-select:focus, .form-control:focus {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 0.25rem rgba(230, 126, 34, 0.25) !important;
+}
