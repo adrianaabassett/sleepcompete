@@ -349,3 +349,23 @@ footer a:hover {
   border-color: var(--accent-color) !important;
   box-shadow: 0 0 0 0.25rem rgba(230, 126, 34, 0.25) !important;
 }
+/* Bootstrap Table Dark Theme Overrides */
+.table-dark {
+  --bs-table-bg: var(--panel-background);
+  --bs-table-color: var(--text-primary);
+  --bs-table-border-color: var(--border-color);
+  --bs-table-hover-bg: var(--hover-color);
+  --bs-table-hover-color: var(--text-primary);
+}
+
+/* Bootstrap Nav Link Custom Overrides */
+.nav-link {
+  color: var(--text-primary) !important;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+  background-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
