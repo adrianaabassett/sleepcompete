@@ -71,9 +71,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Rented EC2 server** - I did not complete this part of the deliverable.
-- [ ] **Leased domain name** - I did not complete this part of the deliverable.
-- [ ] **Server accessible** from my domain: [https://yourdomainnamehere.click](https://yourdomainnamehere.click) - I did not complete this part of the deliverable.
+- [X] **Rented EC2 server** - I rented the EC2 server
+- [X] **Leased domain name** - I leased the correct domain name for a good price! 
+- [X] **Server accessible** from my domain: adrianabassett.com
 
 ## 🚀 HTML deliverable
 
@@ -96,7 +96,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [X] **I completed the prerequisites for this deliverable** (Simon deployed, GitHub link, Git commits) - Deployed Simon application, linked the GitHub repository, and committed all local code changes. 
 - [X] **Visually appealing colors and layout. No overflowing elements.** - Created a dark-mode palette using CSS custom properties (--background-color, --panel-background, --accent-color) and styled cards with horizontal scroll containers to prevent page overflow.
-- [X] **Use of a CSS framework** - Built a lightweight custom utility framework using CSS variables and reusable component classes like .card-style.
+- [X] **Use of a CSS framework** - Built a lightweight custom utility framework using CSS variables and reusable component classes like .card-style. On line 7 of index.html it says "<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">"
 - [X] **All visual elements styled using CSS** - Applied custom layout and typography styles across all UI components including headers, forms, navigation buttons, tables, custom chart bars, and footers.
 - [X] **Responsive to window resizing using flexbox and/or grid display** - Employed Flexbox layouts and media queries to ensure navigation, forms, and chart elements adapt seamlessly between mobile and desktop viewport sizes. 
 - [X] **Use of a imported font** - Imported Google Fonts' Playfair Display serif font and applied it globally across body text and headings.
