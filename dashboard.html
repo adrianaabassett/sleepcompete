@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SleepCompete - Dashboard</title>
     
-    <!-- 1. Bootstrap CDN for utility classes (Rubric Requirement) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- 2. Custom styles load AFTER to override colors -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="container py-4">
@@ -19,7 +17,6 @@
     </header>
     
     <nav class="mb-5">
-        <!-- Using Bootstrap utility classes for layout here to prove framework usage -->
         <ul class="d-flex flex-column flex-sm-row justify-content-center gap-2 m-0 p-0" style="list-style: none;">
             <li><a href="index.html">Home</a></li>
             <li><a href="login.html">Login</a></li>
@@ -34,7 +31,6 @@
                 <table>
                     <thead>
                         <tr>
-                            <!-- Added scope="col" for screen reader accessibility -->
                             <th scope="col">Rank</th>
                             <th scope="col">Friend</th>
                             <th scope="col">Average Sleep (Hours)</th>
@@ -63,7 +59,6 @@
 
         <section class="mb-5">
             <h2 class="text-center mb-3">Your Recent Sleep History</h2>
-            <!-- Applied the shared card-style class to reduce CSS redundancy -->
             <div class="sleep-history-container card-style">
                 <div class="sleep-row">
                     <span class="day">Mon</span>
@@ -109,7 +104,6 @@
 
         <section class="mb-4">
             <h2 class="text-center mb-3">Live Friend Activity</h2>
-            <!-- Replaced specific ID with reusable card-style class -->
             <div class="card-style">
                 <p class="mb-1"><em><strong style="color: var(--accent-color);">[Live]</strong> Friend A just logged 8 hours!</em></p>
                 <p class="mb-0"><em><strong style="color: var(--accent-color);">[Live]</strong> Friend B just went to bed.</em></p>
@@ -118,11 +112,123 @@
 
         <section class="mb-4">
             <h2 class="text-center mb-3">Daily Sleep Tips (via Health API)</h2>
-            <!-- Replaced specific ID with reusable card-style class -->
             <div class="card-style">
                 <p class="mb-0"><strong style="color: var(--accent-color);">Tip of the day:</strong> Avoid screens 30 minutes before bed to improve sleep quality.</p>
             </div>
         </section>
+<section class="card-style rounded p-4 my-4">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <h2 class="h4 mb-0">Weekly Sleep Log</h2>
+        <span class="badge bg-dark border border-secondary text-warning">Goal: 8.0 hrs/night</span>
+    </div>
+    <p class="small text-secondary mb-4">Click any day bar or use the form below to update sleep hours from previous days.</p>
+
+    <div class="sleep-chart-container d-flex justify-content-around align-items-end p-3 mb-4">
+        
+        <div class="chart-col text-center" data-day="Mon" onclick="selectDay('Mon')">
+            <div class="bar-value small mb-1" id="val-Mon">7.5h</div>
+            <div class="bar-track mx-auto">
+                <div class="bar-fill" id="fill-Mon"></div>
+            </div>
+            <div class="day-label small mt-2">Mon</div>
+        </div>
+
+        <div class="chart-col text-center" data-day="Tue" onclick="selectDay('Tue')">
+            <div class="bar-value small mb-1" id="val-Tue">6.0h</div>
+            <div class="bar-track mx-auto">
+                <div class="bar-fill" id="fill-Tue"></div>
+            </div>
+            <div class="day-label small mt-2">Tue</div>
+        </div>
+
+        <div class="chart-col text-center" data-day="Wed" onclick="selectDay('Wed')">
+            <div class="bar-value small mb-1" id="val-Wed">8.0h</div>
+            <div class="bar-track mx-auto">
+                <div class="bar-fill" id="fill-Wed"></div>
+            </div>
+            <div class="day-label small mt-2">Wed</div>
+        </div>
+
+        <div class="chart-col text-center" data-day="Thu" onclick="selectDay('Thu')">
+            <div class="bar-value small mb-1" id="val-Thu">5.5h</div>
+            <div class="bar-track mx-auto">
+                <div class="bar-fill" id="fill-Thu"></div>
+            </div>
+            <div class="day-label small mt-2">Thu</div>
+        </div>
+
+        <div class="chart-col text-center" data-day="Fri" onclick="selectDay('Fri')">
+            <div class="bar-value small mb-1" id="val-Fri">7.0h</div>
+            <div class="bar-track mx-auto">
+                <div class="bar-fill" id="fill-Fri"></div>
+            </div>
+            <div class="day-label small mt-2">Fri</div>
+        </div>
+
+        <div class="chart-col text-center" data-day="Sat" onclick="selectDay('Sat')">
+            <div class="bar-value small mb-1" id="val-Sat">8.5h</div>
+            <div class="bar-track mx-auto">
+                <div class="bar-fill" id="fill-Sat"></div>
+            </div>
+            <div class="day-label small mt-2">Sat</div>
+        </div>
+
+        <div class="chart-col text-center" data-day="Sun" onclick="selectDay('Sun')">
+            <div class="bar-value small mb-1" id="val-Sun">8.0h</div>
+            <div class="bar-track mx-auto">
+                <div class="bar-fill" id="fill-Sun"></div>
+            </div>
+            <div class="day-label small mt-2">Sun</div>
+        </div>
+
+    </div>
+
+    <div class="row g-2 text-center mb-4">
+        <div class="col-4">
+            <div class="p-2 rounded border border-secondary bg-dark">
+                <div class="text-secondary small">Total Slept</div>
+                <div id="stat-total" class="fs-6 fw-bold text-light">50.5 hrs</div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="p-2 rounded border border-secondary bg-dark">
+                <div class="text-secondary small">Nightly Avg</div>
+                <div id="stat-avg" class="fs-6 fw-bold text-warning">7.2 hrs</div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="p-2 rounded border border-secondary bg-dark">
+                <div class="text-secondary small">Goal Met</div>
+                <div id="stat-met" class="fs-6 fw-bold text-success">3 / 7 Days</div>
+            </div>
+        </div>
+    </div>
+
+    <form id="sleep-entry-form" onsubmit="handleSleepSubmit(event)" class="card p-3 bg-dark border-secondary">
+        <h3 class="h6 mb-3 text-light">Update Day's Hours</h3>
+        <div class="row g-2 align-items-end">
+            <div class="col-md-5">
+                <label for="daySelect" class="form-label text-secondary small mb-1">Day</label>
+                <select id="daySelect" class="form-select bg-dark text-light border-secondary" onchange="selectDay(this.value)">
+                    <option value="Mon">Monday</option>
+                    <option value="Tue">Tuesday</option>
+                    <option value="Wed">Wednesday</option>
+                    <option value="Thu">Thursday</option>
+                    <option value="Fri">Friday</option>
+                    <option value="Sat">Saturday</option>
+                    <option value="Sun">Sunday</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="hoursInput" class="form-label text-secondary small mb-1">Hours Slept (0-12)</label>
+                <input type="number" id="hoursInput" min="0" max="12" step="0.5" class="form-control bg-dark text-light border-secondary" value="7.5" required>
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-warning w-100 fw-bold">Save Hours</button>
+            </div>
+        </div>
+    </form>
+    </section>
     </main>
     
     <footer class="text-center mt-5 pt-4">
