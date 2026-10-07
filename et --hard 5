@@ -1,0 +1,79 @@
+[33me6457c3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: reset: moving to origin/main
+[33m60b424b[m HEAD@{1}: commit: dashboard html was changed to jsx
+[33mfb25f3f[m HEAD@{2}: commit: main tag into home
+[33mc581fa6[m HEAD@{3}: commit: put header nav and footer in app.jsx
+[33mbe14e26[m HEAD@{4}: commit: splitting index.html
+[33m4d0359f[m HEAD@{5}: commit: almost ready to deploy
+[33mbdeb891[m HEAD@{6}: commit: Dashboard.jsx
+[33m6576393[m HEAD@{7}: commit: Login.jsx
+[33mcd5ec80[m HEAD@{8}: commit: Home.jsx
+[33m0d97ab6[m HEAD@{9}: commit: App.jsx
+[33m95b0198[m HEAD@{10}: commit: main.jsx
+[33m4145085[m HEAD@{11}: commit: vite config js
+[33m19e590c[m HEAD@{12}: commit: package json
+[33m3fd5bf0[m HEAD@{13}: commit: configured files
+[33me6457c3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{14}: commit (merge): cleanup
+[33mbc76689[m HEAD@{15}: commit: cleanup
+[33m659246d[m HEAD@{16}: commit: cleanup
+[33m3e7b2a6[m HEAD@{17}: commit: button
+[33mbc81e1d[m HEAD@{18}: commit (merge): all
+[33md9daf22[m HEAD@{19}: commit: changes to the index
+[33m3102b1c[m HEAD@{20}: commit: changes to the index
+[33m8705eb5[m HEAD@{21}: commit: styles root and dashboard colors
+[33m494d0fc[m HEAD@{22}: commit: styles root and dashboard colors
+[33m63abd28[m HEAD@{23}: commit: styles root
+[33mfad98c6[m HEAD@{24}: commit: dashboard
+[33me4018bb[m HEAD@{25}: commit: dashboard
+[33m9452391[m HEAD@{26}: commit: styles root
+[33mb99a63f[m HEAD@{27}: commit: styles root
+[33mc2a4f75[m HEAD@{28}: commit (merge): changes
+[33m1c8c383[m HEAD@{29}: commit: styles font
+[33m01aa322[m HEAD@{30}: commit: styles font
+[33m90a1c4a[m HEAD@{31}: commit: styles font
+[33m78214b6[m HEAD@{32}: commit: styles font
+[33mc635f6f[m HEAD@{33}: commit: styles font
+[33m44b45cc[m HEAD@{34}: commit: dashboard
+[33md4f1f56[m HEAD@{35}: commit: dashboard
+[33m637ef85[m HEAD@{36}: commit: dashboard
+[33m4ce13d8[m HEAD@{37}: commit: dashboard
+[33m7be6906[m HEAD@{38}: commit: dashboard
+[33m868867e[m HEAD@{39}: commit: dashboard
+[33mf610c14[m HEAD@{40}: commit: dashboard
+[33me99b56b[m HEAD@{41}: commit: styles font
+[33mc905ca0[m HEAD@{42}: commit (merge): yay?
+[33m939097b[m HEAD@{43}: commit: changed 1 file
+[33m9faf627[m HEAD@{44}: commit: changed 1 file
+[33m103e716[m HEAD@{45}: commit: changed 2 files
+[33md325963[m HEAD@{46}: commit: footer2
+[33mba4092a[m HEAD@{47}: commit: footer
+[33m4e14766[m HEAD@{48}: commit: tables
+[33m43da95c[m HEAD@{49}: commit: input may change
+[33mc5e8647[m HEAD@{50}: commit: input may change
+[33m2cb471e[m HEAD@{51}: commit: input
+[33m54ff9c3[m HEAD@{52}: commit: input
+[33ma3b0cf5[m HEAD@{53}: commit: label
+[33mfb9ede5[m HEAD@{54}: commit: form
+[33mf407d2c[m HEAD@{55}: commit: form
+[33m673bbaa[m HEAD@{56}: commit: I'm going to add better sleep tips
+[33mb0b9fda[m HEAD@{57}: commit: responsive image fixed
+[33ma6a1a69[m HEAD@{58}: commit: responsive image test
+[33mce8cb7e[m HEAD@{59}: commit: some main stugg
+[33ma04cc88[m HEAD@{60}: commit: more navigation
+[33ma0be325[m HEAD@{61}: commit: css updated navigation
+[33med583a1[m HEAD@{62}: commit: css updated header 2
+[33m649b58b[m HEAD@{63}: commit: css updated header 1
+[33mb5b6bec[m HEAD@{64}: commit: css updated header
+[33m43e9cce[m HEAD@{65}: commit: css updated body
+[33m9ea71cd[m HEAD@{66}: commit: css updated
+[33m9426e82[m HEAD@{67}: commit: added a css
+[33mdf49c6d[m HEAD@{68}: commit: added a css
+[33mb6b1317[m HEAD@{69}: commit: login changes
+[33mcc7525f[m HEAD@{70}: commit: dashboard changes
+[33m0ceabaf[m HEAD@{71}: commit: index changes
+[33md94550c[m HEAD@{72}: commit: sleepy chicken placeholder
+[33mab1088e[m HEAD@{73}: commit: dashboard.html header
+[33meadb9fb[m HEAD@{74}: commit: dashboard.html
+[33mc24c80d[m HEAD@{75}: commit: login.html again
+[33mb085865[m HEAD@{76}: commit: login.html
+[33m75a3e69[m HEAD@{77}: commit: added index.html
+[33md651909[m HEAD@{78}: clone: from https://github.com/adrianaabassett/sleepcompete.git
