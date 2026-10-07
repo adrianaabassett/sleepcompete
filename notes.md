@@ -21,5 +21,6 @@ Interesting things I have learned about AWS
 Interesting things I have learned about HTML
 
 ## React
-
+- SPA navigation allows route changes without full page reloads.
+- JSX requires self-closing tags and `className` attributes instead of standard HTML `class`.
 Interesting things I have learned about React
