@@ -10,7 +10,7 @@ export default function App() {
       <header>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
-            <NavLink className="navbar-brand" to="/">Startup App</NavLink>
+            <NavLink className="navbar-brand" to="/">Sleep Compete</NavLink>
             <div className="navbar-nav">
               <NavLink className="nav-link" to="/">Home</NavLink>
               <NavLink className="nav-link" to="login">Login</NavLink>
@@ -31,8 +31,8 @@ export default function App() {
 
       <footer className="footer text-center py-3 border-top">
         <div className="container">
-          <span>Author: <strong>Your Name</strong></span> | 
-          <a href="https://github.com/your-username/your-repo-name" target="_blank" rel="noopener noreferrer" className="ms-2">
+          <span>Author: <strong>Adriana Bassett</strong></span> | 
+          <a href="https://github.com/adrianaabassett/sleepcompete" target="_blank" rel="noopener noreferrer" className="ms-2">
             GitHub Repository
           </a>
         </div>
