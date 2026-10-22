@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import Home from './home/Home';
-import Login from './login/Login';
+import { Login } from './login/Login';
 import Dashboard from './dashboard/Dashboard';
+import { AuthState } from './login/authState';
 
 export default function App() {
+  // Initialize authentication state from localStorage
+  const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
+  const [authState, setAuthState] = useState(
+    userName ? AuthState.Authenticated : AuthState.Unauthenticated
+  );
+
   return (
     <div className="app-container">
       <header>
@@ -13,8 +20,8 @@ export default function App() {
             <NavLink className="navbar-brand" to="/">Sleep Compete</NavLink>
             <div className="navbar-nav">
               <NavLink className="nav-link" to="/">Home</NavLink>
-              <NavLink className="nav-link" to="login">Login</NavLink>
-              <NavLink className="nav-link" to="dashboard">Dashboard</NavLink>
+              <NavLink className="nav-link" to="/login">Login</NavLink>
+              <NavLink className="nav-link" to="/dashboard">Dashboard</NavLink>
             </div>
           </div>
         </nav>
@@ -23,8 +30,20 @@ export default function App() {
       <main className="container my-4">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route 
+            path="/login" 
+            element={
+              <Login
+                userName={userName}
+                authState={authState}
+                onAuthChange={(updatedUserName, updatedAuthState) => {
+                  setUserName(updatedUserName);
+                  setAuthState(updatedAuthState);
+                }}
+              />
+            } 
+          />
+          <Route path="/dashboard" element={<Dashboard userName={userName} />} />
           <Route path="*" element={<h2>404: Page Not Found</h2>} />
         </Routes>
       </main>
