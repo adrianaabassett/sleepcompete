@@ -115,9 +115,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [X] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [X] **All functionality implemented or mocked out** - Implemented interactive weekly sleep tracking bars, entry form inputs, and dynamic summary calculations for nightly averages and goal completion.
+- [X] **Hooks** - Utilized React `useState` and `useEffect` hooks to manage local sleep logs, track selected days, update input fields, and synchronize data on component mount.
 
 ## 🚀 Service deliverable
 
