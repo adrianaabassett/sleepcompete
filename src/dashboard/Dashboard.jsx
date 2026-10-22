@@ -23,12 +23,13 @@ export default function Dashboard() {
   // Retrieve the dynamic username from localStorage (fallback to SleepyUser99)
   const userName = localStorage.getItem('userName') || 'SleepyUser99';
 
-  // 3. Load saved sleep data from the backend database on mount with safety validation
+  // 3. Load saved sleep data from backend database on mount (with credentials included)
   useEffect(() => {
-    fetch(`/api/sleep/${userName}`)
+    fetch(`/api/sleep/${userName}`, {
+      credentials: 'include', // <-- Required to send the auth cookie
+    })
       .then((res) => res.json())
       .then((data) => {
-        // Ensure data is valid sleep data (has 'Mon') and NOT an error message object
         if (data && data.Mon !== undefined) {
           setSleepData(data);
         }
@@ -58,11 +59,12 @@ export default function Dashboard() {
       setSleepData(updatedSleepData);
       setErrorMsg(''); // Clear any previous errors on success
 
-      // Save updated sleep data to the backend database
+      // Save updated sleep data to the backend database (with credentials included)
       try {
         await fetch('/api/sleep', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          credentials: 'include', // <-- Required to send the auth cookie
           body: JSON.stringify({ userName, sleepData: updatedSleepData }),
         });
       } catch (err) {
