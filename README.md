@@ -126,7 +126,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [X] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
 - [X] **Node.js/Express HTTP service** - Created `index.js` to run an Express server backend on port 4000.
 - [X] **Static middleware for frontend** - Configured Express static middleware (`app.use(express.static('public'))`).
-- [X] **Calls to third party endpoints** - (Planned for future deliverables)
+- [X] **Calls to third party endpoints** - Implemented a backend route that fetches external data (such as daily motivational health/sleep quotes) from a public third-party API.
 - [X] **Backend service endpoints** - Implemented REST API endpoints (`GET /api/sleep/:userName` and `POST /api/sleep`) for data persistence.
 - [X] **Frontend calls service endpoints** - Connected frontend components (`Dashboard.jsx`) to make `fetch` requests routed through Vite's proxy configuration.
 - [X] **Supports registration, login, logout, and restricted endpoint** - Implemented server-side authentication routes (`/api/auth/create`, `/api/auth/login`, `/api/auth/logout`) utilizing bcrypt for secure password hashing and HTTP-only cookies to protect restricted sleep data endpoints.
