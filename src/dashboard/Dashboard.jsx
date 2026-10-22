@@ -37,15 +37,15 @@ export default function Dashboard() {
       });
   }, [userName]);
 
-  // 4. Derived state: React automatically recalculates these when sleepData changes
+  // 4. Derived state: Safely cast values to Numbers to prevent string concatenation
   const days = Object.keys(sleepData);
-  const totalHours = days.reduce((sum, day) => sum + sleepData[day], 0);
+  const totalHours = days.reduce((sum, day) => sum + Number(sleepData[day] || 0), 0);
   const avgHours = (totalHours / days.length).toFixed(1);
-  const daysGoalMet = days.filter(day => sleepData[day] >= TARGET_HOURS).length;
+  const daysGoalMet = days.filter(day => Number(sleepData[day] || 0) >= TARGET_HOURS).length;
 
   // 5. useEffect hook to update the input field when the user selects a new day
   useEffect(() => {
-    setInputHours(sleepData[selectedDay]);
+    setInputHours(Number(sleepData[selectedDay] || 8.0));
   }, [selectedDay, sleepData]);
 
   // Handle form submission, update state, and save to the backend database
@@ -112,7 +112,7 @@ export default function Dashboard() {
         {/* Chart Columns */}
         <div className="sleep-chart-container d-flex justify-content-around align-items-end p-3 mb-4">
           {days.map((day) => {
-            const hours = sleepData[day];
+            const hours = Number(sleepData[day] || 0);
             const heightPercent = Math.min((hours / MAX_HOURS) * 100, 100);
             const isGoalMet = hours >= TARGET_HOURS;
             const isSelected = day === selectedDay;
