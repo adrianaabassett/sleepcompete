@@ -123,14 +123,13 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Supports registration, login, logout, and restricted endpoint** - I did not complete this part of the deliverable.
-- [ ] **Uses BCrypt to hash passwords** - I did not complete this part of the deliverable.
+- [X] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
+- [X] **Node.js/Express HTTP service** - Created `index.js` to run an Express server backend on port 4000.
+- [X] **Static middleware for frontend** - Configured Express static middleware (`app.use(express.static('public'))`).
+- [ ] **Calls to third party endpoints** - (Planned for future deliverables)
+- [X] **Backend service endpoints** - Implemented REST API endpoints (`GET /api/sleep/:userName` and `POST /api/sleep`) for data persistence.
+- [X] **Frontend calls service endpoints** - Connected frontend components (`Dashboard.jsx`) to make `fetch` requests routed through Vite's proxy configuration.
+- [ ] **Supports registration, login, logout, and restricted endpoint** - (Client-side auth handled via localStorage; full server-side auth planned for DB deliverable).
 
 ## 🚀 DB deliverable
 
