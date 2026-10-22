@@ -23,12 +23,13 @@ export default function Dashboard() {
   // Retrieve the dynamic username from localStorage (fallback to SleepyUser99)
   const userName = localStorage.getItem('userName') || 'SleepyUser99';
 
-  // 3. Load saved sleep data from the backend database on mount
+  // 3. Load saved sleep data from the backend database on mount with safety validation
   useEffect(() => {
     fetch(`/api/sleep/${userName}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data && Object.keys(data).length > 0) {
+        // Ensure data is valid sleep data (has 'Mon') and NOT an error message object
+        if (data && data.Mon !== undefined) {
           setSleepData(data);
         }
       })
