@@ -20,8 +20,8 @@ export default function Dashboard() {
   const MAX_HOURS = 12;
   const TARGET_HOURS = 8.0;
   
-  // Retrieve the dynamic username from localStorage (fallback to SleepyUser99)
-  const userName = localStorage.getItem('userName') || 'SleepyUser99';
+  
+  const userName = localStorage.getItem('userName') || 'Insert User Name Here';
 
   // 3. Load saved sleep data from backend database on mount (with credentials included)
   useEffect(() => {
