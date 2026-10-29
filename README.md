@@ -23,7 +23,7 @@ Have you struggled with sleep? Most Americans get less sleep than they truly nee
     actor Website
     actor Server
     You->>Website: Logs sleep duration (e.g., 8.5 hours)
-    Website->>Server: POST /api/sleep
+    Website->>Server: POST /api/sleep 
     Server-->>Website: Returns updated Leaderboard Data
     Website->>You: Displays your new rank
     Server->>Website: WebSocket broadcast to friends: "User just logged 8.5 hours!"
