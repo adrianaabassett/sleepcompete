@@ -42,7 +42,7 @@ Have you struggled with sleep? Most Americans get less sleep than they truly nee
 
 ### Technologies 
 
-I am going to use the required technologies in the following ways.  
+I am going to use the required technologies in the following ways.
 
 - **HTML** - Uses correct HTML structural elements to build the application pages. See Above. 
 - **CSS** - Styling the application to look clean, modern, and restful. Uses Flexbox/Grid for responsive design on mobile and desktop, similar to my previously made portfolio website.
