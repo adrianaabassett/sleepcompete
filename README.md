@@ -12,7 +12,7 @@ Have you struggled with sleep? Most Americans get less sleep than they truly nee
 
 ![Design image](1.png)
 ![Design image](Friends.png)
-![Design image](LogTimes.png)
+![Design image](LogTimes.png) 
 ![Design image](MyScores.png)
 ![Design image](MyScores(2).png)
 ![Design image](SignIn.png)
