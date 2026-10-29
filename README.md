@@ -89,9 +89,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [X] **WebSocket placeholder** - Added a notification div in dashboard.html to serve as a placeholder for real-time data.
 
 ## 🚀 CSS deliverable
-
+ 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
+ 
 - [X] **I completed the prerequisites for this deliverable** (Simon deployed, GitHub link, Git commits) - Deployed Simon application, linked the GitHub repository, and committed all local code changes. 
 - [X] **Visually appealing colors and layout. No overflowing elements.** - Created a dark-mode palette using CSS custom properties (--background-color, --panel-background, --accent-color) and styled cards with horizontal scroll containers to prevent page overflow.
 - [X] **Use of a CSS framework** - Built a lightweight custom utility framework using CSS variables and reusable component classes like .card-style. On line 7 of index.html it says "<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">"
