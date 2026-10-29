@@ -81,7 +81,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [X] **HTML pages** - I made main, login, and dashboard pages. 
 - [X] **Proper HTML element usage** - Lots of juicy HTML elements.
 - [X] **Links** - Links to other pages and github
-- [X] **Text** - Text for the page and sleep advice
+- [X] **Text** - Text for the page and sleep advice 
 - [X] **3rd party API placeholder** - Added a placeholder for Daily Sleep Tips via an external Health API.
 - [X] **Images** - Added and committed `sleepychicken.png` to the repository and referenced it in index.html.
 - [X] **Login placeholder** - Implemented a login form with proper label associations in login.html.
