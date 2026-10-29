@@ -1,134 +1,122 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const bcrypt = require('bcryptjs');
-const uuid = require('uuid');
+import express from 'express';
+import bcrypt from 'bcryptjs';
+import cookieParser from 'cookie-parser';
 
 const app = express();
-const authCookieName = 'token';
 
-// Memory data structures
-let users = [];
-let scores = [];
-
+// Middleware to parse incoming JSON payloads and cookies
 app.use(express.json());
 app.use(cookieParser());
-const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
+// Serve frontend static files if configured (e.g., Vite build output)
 app.use(express.static('public'));
 
-const apiRouter = express.Router();
-app.use('/api', apiRouter);
+// In-memory data stores (to be replaced by MongoDB later)
+let users = {};
+let sleepDatabase = {};
+const authCookieName = 'token';
 
-// CreateAuth a new user
-apiRouter.post('/auth/create', async (req, res) => {
-  if (await findUser('email', req.body.email)) {
-    res.status(409).send({ msg: 'Existing user' });
-  } else {
-    const user = await createUser(req.body.email, req.body.password);
-    setAuthCookie(res, user.token);
-    res.send({ email: user.email });
+// ==========================================
+// 1. THIRD-PARTY API ENDPOINT
+// ==========================================
+app.get('/api/quote', async (req, res) => {
+  try {
+    const response = await fetch('https://api.quotable.io/random');
+    const data = await response.json();
+    res.json(data);
+  } catch (err) {
+    // Fallback in case the external API fails
+    res.json({ 
+      content: 'Sleep is the golden chain that ties health and our bodies together.', 
+      author: 'Thomas Dekker' 
+    });
   }
 });
 
-// GetAuth login an existing user
-apiRouter.post('/auth/login', async (req, res) => {
-  const user = await findUser('email', req.body.email);
-  if (user) {
-    if (await bcrypt.compare(req.body.password, user.password)) {
-      user.token = uuid.v4();
-      setAuthCookie(res, user.token);
-      res.send({ email: user.email });
-      return;
-    }
+// ==========================================
+// 2. AUTHENTICATION ENDPOINTS
+// ==========================================
+
+// Register / Create Account
+app.post('/api/auth/create', async (req, res) => {
+  const { userName, password } = req.body;
+  if (users[userName]) {
+    return res.status(409).send({ msg: 'User already exists' });
+  }
+
+  const passwordHash = await bcrypt.hash(password, 10);
+  users[userName] = { userName, passwordHash };
+
+  setAuthCookie(res, userName);
+  res.send({ userName });
+});
+
+// Login
+app.post('/api/auth/login', async (req, res) => {
+  const { userName, password } = req.body;
+  const user = users[userName];
+  if (user && (await bcrypt.compare(password, user.passwordHash))) {
+    setAuthCookie(res, userName);
+    res.send({ userName });
+    return;
   }
   res.status(401).send({ msg: 'Unauthorized' });
 });
 
-// DeleteAuth logout a user
-apiRouter.delete('/auth/logout', async (req, res) => {
-  const user = await findUser('token', req.cookies[authCookieName]);
-  if (user) {
-    delete user.token;
-  }
+// Logout
+app.delete('/api/auth/logout', (_req, res) => {
   res.clearCookie(authCookieName);
   res.status(204).end();
 });
 
-// Middleware to verify that the user is authorized to call an endpoint
-const verifyAuth = async (req, res, next) => {
-  const user = await findUser('token', req.cookies[authCookieName]);
-  if (user) {
+// Helper function to set secure auth cookie
+function setAuthCookie(res, userName) {
+  res.cookie(authCookieName, userName, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+  });
+}
+
+// ==========================================
+// 3. RESTRICTED ENDPOINTS & MIDDLEWARE
+// ==========================================
+
+// Middleware to verify authentication for protected routes
+const verifyAuth = (req, res, next) => {
+  const userName = req.cookies[authCookieName];
+  if (userName && users[userName]) {
+    req.userName = userName;
     next();
   } else {
     res.status(401).send({ msg: 'Unauthorized' });
   }
 };
 
-// GetScores
-apiRouter.get('/scores', verifyAuth, (_req, res) => {
-  res.send(scores);
-});
-
-// SubmitScore
-apiRouter.post('/score', verifyAuth, (req, res) => {
-  scores = updateScores(req.body);
-  res.send(scores);
-});
-
-// Default error handler
-app.use(function (err, req, res, next) {
-  res.status(500).send({ type: err.name, message: err.message });
-});
-
-// Fallback to React Router for unknown frontend paths
-app.use((_req, res) => {
-  res.sendFile('index.html', { root: 'public' });
-});
-
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
-
-// --- Helper Functions ---
-
-function updateScores(newScore) {
-  let found = false;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
-      found = true;
-      break;
-    }
-  }
-  if (!found) {
-    scores.push(newScore);
-  }
-  if (scores.length > 10) {
-    scores.length = 10;
-  }
-  return scores;
-}
-
-async function createUser(email, password) {
-  const passwordHash = await bcrypt.hash(password, 10);
-  const user = {
-    email: email,
-    password: passwordHash,
-    token: uuid.v4(),
+// Endpoint to retrieve a user's sleep data (Restricted)
+app.get('/api/sleep/:userName', verifyAuth, (req, res) => {
+  const userName = req.params.userName;
+  const userSleep = sleepDatabase[userName] || {
+    Mon: 8.0, Tue: 8.0, Wed: 8.0, Thu: 8.0, Fri: 8.0, Sat: 8.0, Sun: 8.0
   };
-  users.push(user);
-  return user;
-}
+  res.json(userSleep);
+});
 
-async function findUser(field, value) {
-  if (!value) return null;
-  return users.find((u) => u[field] === value);
-}
+// Endpoint to save/update a user's sleep data (Restricted)
+app.post('/api/sleep', verifyAuth, (req, res) => {
+  const { userName, sleepData } = req.body;
+  if (userName && sleepData) {
+    sleepDatabase[userName] = sleepData;
+    res.json({ success: true, sleepData });
+  } else {
+    res.status(400).json({ error: 'Invalid payload' });
+  }
+});
 
-function setAuthCookie(res, authToken) {
-  res.cookie(authCookieName, authToken, {
-    //secure: true,
-    httpOnly: true,
-    sameSite: 'strict',
-  });
-}
+// ==========================================
+// SERVER INITIALIZATION
+// ==========================================
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
