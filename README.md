@@ -4,8 +4,6 @@
 
 SleepCompete is a personal health application that turns getting a good night's rest into a friendly competition. Users can log their sleep hours and compare them with their friend's data on sleep consistency and duration to see who is the ultimate sleep champion
 
-
-
 ### Elevator pitch
 
 Have you struggled with sleep? Most Americans get less sleep than they truly need, and with distractions and stress that statistic is not likely to get better. SleepCompete is a sleep tracking app that keeps you accountable to your friends and family. Log your hours, maintain your sleep streaks, and climb the leaderboard to prove who truly gets the best rest!
@@ -124,12 +122,13 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [X] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
-- [X] **Node.js/Express HTTP service** - Created `index.js` to run an Express server backend on port 4000.
-- [X] **Static middleware for frontend** - Configured Express static middleware (`app.use(express.static('public'))`).
-- [X] **Calls to third party endpoints** - Implemented a backend route that fetches external data (such as daily motivational health/sleep quotes) from a public third-party API.
-- [X] **Backend service endpoints** - Implemented REST API endpoints (`GET /api/sleep/:userName` and `POST /api/sleep`) for data persistence.
-- [X] **Frontend calls service endpoints** - Connected frontend components (`Dashboard.jsx`) to make `fetch` requests routed through Vite's proxy configuration.
-- [X] **Supports registration, login, logout, and restricted endpoint** - Implemented server-side authentication routes (`/api/auth/create`, `/api/auth/login`, `/api/auth/logout`) utilizing bcrypt for secure password hashing and HTTP-only cookies to protect restricted sleep data endpoints.
+- [X] **Node.js/Express HTTP service** - Created `service/index.js` to run an Express server backend on port 4000.
+- [X] **Static middleware for frontend** - Configured Express static middleware (`app.use(express.static('public'))`) to serve my bundled React frontend.
+- [X] **Calls to third party endpoints** - Implemented a `fetch` call in my frontend `Dashboard.jsx` to retrieve and display daily motivational quotes from `quote.cs260.click`.
+- [X] **Backend service endpoints** - Implemented REST API endpoints (`GET /api/sleep/:userName` and `POST /api/sleep`) for tracking sleep data.
+- [X] **Frontend calls service endpoints** - Connected frontend components to make `fetch` requests to my backend, utilizing Vite's proxy configuration for local development.
+- [X] **Supports registration, login, logout, and restricted endpoint** - Implemented server-side authentication routes (`/api/auth/create`, `/api/auth/login`, `/api/auth/logout`) and middleware (`verifyAuth`) to protect restricted sleep data endpoints using HTTP-only cookies.
+- [X] **Uses BCrypt to hash passwords** - Integrated `bcryptjs` in the registration and login endpoints to securely hash and verify user passwords before saving them in memory.
 
 ## 🚀 DB deliverable
 

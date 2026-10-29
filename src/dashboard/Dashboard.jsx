@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Dashboard() {
-  // 1. Default all days to 8.0 hours
   const [sleepData, setSleepData] = useState({
     Mon: 8.0, Tue: 8.0, Wed: 8.0, Thu: 8.0, Fri: 8.0, Sat: 8.0, Sun: 8.0
   });
 
-  // State for the form inputs and feedback
   const [selectedDay, setSelectedDay] = useState('Mon');
   const [inputHours, setInputHours] = useState(8.0);
   const [errorMsg, setErrorMsg] = useState('');
+  
+  // State for the third-party quote API
+  const [dailyQuote, setDailyQuote] = useState({ text: 'Loading...', author: '' });
 
-  // 2. Mock data abstraction for Live Friend Activity (ready for WebSockets)
   const [friendActivity] = useState([
     { id: 1, text: 'Friend A just logged 8 hours!' },
     { id: 2, text: 'Friend B just went to bed.' }
@@ -20,55 +20,52 @@ export default function Dashboard() {
   const MAX_HOURS = 12;
   const TARGET_HOURS = 8.0;
   
-  
   const userName = localStorage.getItem('userName') || 'Insert User Name Here';
 
-  // 3. Load saved sleep data from backend database on mount (with credentials included)
+  // Third-party API Fetch
   useEffect(() => {
-    fetch(`/api/sleep/${userName}`, {
-      credentials: 'include', // <-- Required to send the auth cookie
-    })
+    fetch('https://quote.cs260.click')
+      .then((res) => res.json())
+      .then((data) => setDailyQuote({ text: data.quote, author: data.author }))
+      .catch(() => setDailyQuote({ text: 'Sleep is the best meditation.', author: 'Dalai Lama' }));
+  }, []);
+
+  useEffect(() => {
+    fetch(`/api/sleep/${userName}`, { credentials: 'include' })
       .then((res) => res.json())
       .then((data) => {
         if (data && data.Mon !== undefined) {
           setSleepData(data);
         }
       })
-      .catch((err) => {
-        console.error('Error fetching sleep data:', err);
-      });
+      .catch((err) => console.error('Error fetching sleep data:', err));
   }, [userName]);
 
-  // 4. Derived state: Safely cast values to Numbers to prevent string concatenation
   const days = Object.keys(sleepData);
   const totalHours = days.reduce((sum, day) => sum + Number(sleepData[day] || 0), 0);
   const avgHours = (totalHours / days.length).toFixed(1);
   const daysGoalMet = days.filter(day => Number(sleepData[day] || 0) >= TARGET_HOURS).length;
 
-  // 5. useEffect hook to update the input field when the user selects a new day
   useEffect(() => {
     setInputHours(Number(sleepData[selectedDay] || 8.0));
   }, [selectedDay, sleepData]);
 
-  // Handle form submission, update state, and save to the backend database
   const handleSleepSubmit = async (e) => {
     e.preventDefault();
     const hours = parseFloat(inputHours);
     if (!isNaN(hours) && hours >= 0 && hours <= MAX_HOURS) {
       const updatedSleepData = { ...sleepData, [selectedDay]: hours };
       setSleepData(updatedSleepData);
-      setErrorMsg(''); // Clear any previous errors on success
+      setErrorMsg('');
 
-      // Save updated sleep data to the backend database (with credentials included)
       try {
         await fetch('/api/sleep', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          credentials: 'include', // <-- Required to send the auth cookie
+          credentials: 'include',
           body: JSON.stringify({ userName, sleepData: updatedSleepData }),
         });
       } catch (err) {
-        console.error('Failed to save sleep data to database', err);
         setErrorMsg('Failed to save to database. Please try again.');
       }
     } else {
@@ -83,7 +80,14 @@ export default function Dashboard() {
         <p className="text-secondary mb-0">Welcome back, <strong className="text-light">{userName}</strong>!</p>
       </header>
 
-      {/* Dynamic Leaderboard Section */}
+      {/* Third-Party API Data Section */}
+      <section className="mb-4">
+        <div className="card bg-dark border-secondary p-3 text-center">
+          <p className="mb-1 fst-italic">"{dailyQuote.text}"</p>
+          <small className="text-warning">— {dailyQuote.author}</small>
+        </div>
+      </section>
+
       <section className="mb-5">
         <h2 className="text-center h4 mb-3">Dynamic Leaderboard (Weekly Sleep Averages)</h2>
         <div className="table-container rounded overflow-hidden">
@@ -104,7 +108,6 @@ export default function Dashboard() {
         </div>
       </section>
 
-      {/* Interactive Weekly Sleep Tracker Section */}
       <section className="card-style rounded p-4 mb-5">
         <div className="d-flex justify-content-between align-items-center mb-2">
           <h2 className="h4 mb-0">Weekly Sleep Log</h2>
@@ -112,7 +115,6 @@ export default function Dashboard() {
         </div>
         <p className="small text-secondary mb-4">Click any day bar or use the form below to update sleep hours from previous days.</p>
 
-        {/* Chart Columns */}
         <div className="sleep-chart-container d-flex justify-content-around align-items-end p-3 mb-4">
           {days.map((day) => {
             const hours = Number(sleepData[day] || 0);
@@ -136,7 +138,6 @@ export default function Dashboard() {
           })}
         </div>
 
-        {/* Live Summary Cards */}
         <div className="row g-2 text-center mb-4">
           <div className="col-4">
             <div className="p-2 rounded border border-secondary bg-dark">
@@ -158,7 +159,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Sleep Entry Form */}
         <form onSubmit={handleSleepSubmit} className="card p-3 bg-dark border-secondary">
           <h3 className="h6 mb-3 text-light">Update Day's Hours</h3>
           <div className="row g-2 align-items-end">
@@ -195,12 +195,10 @@ export default function Dashboard() {
               <button type="submit" className="btn btn-warning w-100 fw-bold">Save Hours</button>
             </div>
           </div>
-          {/* Form Validation Feedback Warning */}
           {errorMsg && <div className="text-danger small mt-2">{errorMsg}</div>}
         </form>
       </section>
 
-      {/* Live Friend Activity */}
       <section className="mb-5">
         <h2 className="text-center h4 mb-3">Live Friend Activity</h2>
         <div className="card-style rounded p-3 bg-dark border border-secondary">
