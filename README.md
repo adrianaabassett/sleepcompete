@@ -74,7 +74,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [X] **Server accessible** from my domain: adrianabassett.com
   
 ## 🚀 HTML deliverable 
-
+ 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [X] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
