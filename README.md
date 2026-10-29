@@ -46,7 +46,7 @@ I am going to use the required technologies in the following ways.
 
 - **HTML** - Uses correct HTML structural elements to build the application pages. See Above. 
 - **CSS** - Styling the application to look clean, modern, and restful. Uses Flexbox/Grid for responsive design on mobile and desktop, similar to my previously made portfolio website.
-- **React** - Provides a smooth, single-page application experience. Handles routing between the login, dashboard, and friends list, as well as reactive UI state for leaderboard updates.  
+- **React** - Provides a smooth, single-page application experience. Handles routing between the login, dashboard, and friends list, as well as reactive UI state for leaderboard updates.
 - **Service** - Node.js/Express backend service to provide endpoints for user authentication, retrieving sleep data, and logging new sleep entries.
 - **DB/Login** - MongoDB database to store user profiles, friend connections, and historical sleep logs. Secure user registration and login using bcrypt for password hashing.
 - **WebSocket** - Real-time updates of scores on the leaderboards and graphs. Third API party-integration will also allow notifications reminding people to enter their sleep times and possibly connect to other applications that measure their sleep times. 
