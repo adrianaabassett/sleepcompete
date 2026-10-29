@@ -51,7 +51,7 @@ I am going to use the required technologies in the following ways.
 - **DB/Login** - MongoDB database to store user profiles, friend connections, and historical sleep logs. Secure user registration and login using bcrypt for password hashing.
 - **WebSocket** - Real-time updates of scores on the leaderboards and graphs. Third API party-integration will also allow notifications reminding people to enter their sleep times and possibly connect to other applications that measure their sleep times. 
 
-## 🚀 Specification Deliverable
+## 🚀 Specification Deliverable 
 
 > [!NOTE]
 > Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
