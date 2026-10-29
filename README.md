@@ -4,7 +4,7 @@
 
 SleepCompete is a personal health application that turns getting a good night's rest into a friendly competition. Users can log their sleep hours and compare them with their friend's data on sleep consistency and duration to see who is the ultimate sleep champion
 
-### Elevator pitch
+### Elevator pitch 
 
 Have you struggled with sleep? Most Americans get less sleep than they truly need, and with distractions and stress that statistic is not likely to get better. SleepCompete is a sleep tracking app that keeps you accountable to your friends and family. Log your hours, maintain your sleep streaks, and climb the leaderboard to prove who truly gets the best rest!
  
