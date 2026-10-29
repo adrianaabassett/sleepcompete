@@ -73,7 +73,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [X] **Leased domain name** - I leased the correct domain name for a good price! 
 - [X] **Server accessible** from my domain: adrianabassett.com
   
-## 🚀 HTML deliverable
+## 🚀 HTML deliverable 
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
