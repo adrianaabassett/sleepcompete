@@ -37,7 +37,7 @@ Have you struggled with sleep? Most Americans get less sleep than they truly nee
 - Social Connections: Users can find and add friends.
 
 - Dynamic Leaderboard: A ranking system that compares your weekly sleep average with your friends.
-  
+
 - Weekly/Monthly Graph: A graph that compares your weekly/monthly sleep data with your friends.
 
 ### Technologies 
