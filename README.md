@@ -90,7 +90,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ## 🚀 CSS deliverable
  
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed. 
  
 - [X] **I completed the prerequisites for this deliverable** (Simon deployed, GitHub link, Git commits) - Deployed Simon application, linked the GitHub repository, and committed all local code changes. 
 - [X] **Visually appealing colors and layout. No overflowing elements.** - Created a dark-mode palette using CSS custom properties (--background-color, --panel-background, --accent-color) and styled cards with horizontal scroll containers to prevent page overflow.
