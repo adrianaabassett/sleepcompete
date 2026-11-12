@@ -1,7 +1,7 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import cookieParser from 'cookie-parser';
-import * as db from '../database.js'; // Import MongoDB queries
+import * as db from './database.js'; // Import MongoDB queries
 
 const app = express();
 app.use(express.json());
