@@ -65,9 +65,7 @@ function setAuthCookie(res, token) {
   });
 }
 
-// ==========================================
-// 3. RESTRICTED ENDPOINTS & MIDDLEWARE
-// ==========================================
+
 const verifyAuth = async (req, res, next) => {
   const token = req.cookies[authCookieName];
   const user = await db.getUserByToken(token);
