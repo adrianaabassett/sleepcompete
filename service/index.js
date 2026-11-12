@@ -90,7 +90,6 @@ app.get('/api/sleep/:userName', verifyAuth, async (req, res) => {
 app.post('/api/sleep', verifyAuth, async (req, res) => {
   const { userName, weekId, sleepData } = req.body;
   
-  // Ensure the frontend passes an identifier for the week (e.g., 'Week 1', or a date string)
   if (userName && weekId && sleepData) {
     await db.addSleepData(userName, weekId, sleepData);
     res.json({ success: true, weekId, sleepData });
