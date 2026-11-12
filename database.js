@@ -44,7 +44,6 @@ export async function addSleepData(userName, weekId, sleepData) {
 }
 
 export async function getSleepData(userName) {
-  // Returns up to 4 of the most recent weekly entries for the user (representing a month)
   const cursor = sleepCollection.find({ userName: userName })
     .sort({ lastUpdated: -1 }) 
     .limit(4);
