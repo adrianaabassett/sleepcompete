@@ -36,7 +36,6 @@ export async function createUser(userName, passwordHash) {
 }
 
 export async function addSleepData(userName, weekId, sleepData) {
-  // Upsert: Updates the data if the week exists, otherwise creates a new record
   await sleepCollection.updateOne(
     { userName: userName, weekId: weekId },
     { $set: { sleepData: sleepData, lastUpdated: new Date() } },
