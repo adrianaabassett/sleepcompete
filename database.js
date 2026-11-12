@@ -18,7 +18,6 @@ const sleepCollection = db.collection('sleep');
   process.exit(1);
 });
 
-// --- User Authentication ---
 export async function getUser(userName) {
   return await userCollection.findOne({ userName: userName });
 }
