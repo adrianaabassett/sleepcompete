@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 export function Authenticated(props) {
   const navigate = useNavigate();
 
+  
   function logout() {
     fetch('/api/auth/logout', { method: 'DELETE' })
       .catch(() => {
