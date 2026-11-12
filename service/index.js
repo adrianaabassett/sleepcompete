@@ -71,7 +71,7 @@ const verifyAuth = async (req, res, next) => {
   const user = await db.getUserByToken(token);
   
   if (user) {
-    req.userName = user.userName; // Attach verified userName to the request
+    req.userName = user.userName; 
     next();
   } else {
     res.status(401).send({ msg: 'Unauthorized' });
