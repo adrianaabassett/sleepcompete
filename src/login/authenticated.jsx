@@ -8,7 +8,7 @@ export function Authenticated(props) {
   function logout() {
     fetch('/api/auth/logout', { method: 'DELETE' })
       .catch(() => {
-        // Logout failed. Assuming offline.
+        // Logout failed. Assuming offline. When I get this issue its usually because of a backend problem
       })
       .finally(() => {
         localStorage.removeItem('userName');
