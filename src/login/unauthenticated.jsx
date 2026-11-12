@@ -24,7 +24,6 @@ export function Unauthenticated(props) {
         setDisplayError(`Login failed: ${body.msg}`);
       }
     } catch (err) {
-      // Catches server crashes, network drops, and invalid JSON responses
       setDisplayError('Network error: The server might be offline or unreachable.');
     }
   }
