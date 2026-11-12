@@ -23,7 +23,7 @@ app.get('/api/quote', async (req, res) => {
       content: 'Sleep is the golden chain that ties health and our bodies together.', 
       author: 'Thomas Dekker' 
     });
-  }
+  }    
 });
 
 // ==========================================
