@@ -7,6 +7,7 @@ export function Unauthenticated(props) {
   const [password, setPassword] = useState('');
   const [displayError, setDisplayError] = useState(null);
 
+  
   async function handleLogin() {
     try {
       const response = await fetch('/api/auth/login', {
