@@ -26,9 +26,7 @@ app.get('/api/quote', async (req, res) => {
   }    
 });
 
-// ==========================================
-// 2. AUTHENTICATION ENDPOINTS
-// ==========================================
+
 app.post('/api/auth/create', async (req, res) => {
   const { userName, password } = req.body;
   
