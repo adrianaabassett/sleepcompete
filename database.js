@@ -8,7 +8,6 @@ const db = client.db('sleepcompete');
 const userCollection = db.collection('users');
 const sleepCollection = db.collection('sleep');
 
-// Test the connection immediately on startup
 (async function testConnection() {
   await client.connect();
   await db.command({ ping: 1 });
@@ -36,7 +35,6 @@ export async function createUser(userName, passwordHash) {
   return user;
 }
 
-// --- Sleep Data ---
 export async function addSleepData(userName, weekId, sleepData) {
   // Upsert: Updates the data if the week exists, otherwise creates a new record
   await sleepCollection.updateOne(
