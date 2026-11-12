@@ -10,9 +10,7 @@ app.use(express.static('public'));
 
 const authCookieName = 'token';
 
-// ==========================================
-// 1. THIRD-PARTY API ENDPOINT (Fallback)
-// ==========================================
+
 app.get('/api/quote', async (req, res) => {
   try {
     const response = await fetch('https://api.quotable.io/random');
