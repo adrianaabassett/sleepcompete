@@ -5,11 +5,14 @@ export default function Dashboard() {
     Mon: 8.0, Tue: 8.0, Wed: 8.0, Thu: 8.0, Fri: 8.0, Sat: 8.0, Sun: 8.0
   });
 
+  // NEW: State for tracking multiple weeks of data from the DB
+  const [history, setHistory] = useState([]);
+  const [selectedWeek, setSelectedWeek] = useState('Week 1');
+
   const [selectedDay, setSelectedDay] = useState('Mon');
   const [inputHours, setInputHours] = useState(8.0);
   const [errorMsg, setErrorMsg] = useState('');
   
-  // State for the third-party quote API
   const [dailyQuote, setDailyQuote] = useState({ text: 'Loading...', author: '' });
 
   const [friendActivity] = useState([
@@ -30,16 +33,27 @@ export default function Dashboard() {
       .catch(() => setDailyQuote({ text: 'Sleep is the best meditation.', author: 'Dalai Lama' }));
   }, []);
 
+  // NEW: Fetch all history for this user (up to 4 weeks)
   useEffect(() => {
     fetch(`/api/sleep/${userName}`, { credentials: 'include' })
       .then((res) => res.json())
       .then((data) => {
-        if (data && data.Mon !== undefined) {
-          setSleepData(data);
+        if (Array.isArray(data)) {
+          setHistory(data);
         }
       })
       .catch((err) => console.error('Error fetching sleep data:', err));
   }, [userName]);
+
+  // NEW: Update the displayed chart whenever the user selects a different week
+  useEffect(() => {
+    const currentWeek = history.find((w) => w.weekId === selectedWeek);
+    if (currentWeek && currentWeek.sleepData) {
+      setSleepData(currentWeek.sleepData);
+    } else {
+      setSleepData({ Mon: 8.0, Tue: 8.0, Wed: 8.0, Thu: 8.0, Fri: 8.0, Sat: 8.0, Sun: 8.0 });
+    }
+  }, [selectedWeek, history]);
 
   const days = Object.keys(sleepData);
   const totalHours = days.reduce((sum, day) => sum + Number(sleepData[day] || 0), 0);
@@ -57,13 +71,23 @@ export default function Dashboard() {
       const updatedSleepData = { ...sleepData, [selectedDay]: hours };
       setSleepData(updatedSleepData);
       setErrorMsg('');
+      
+      // Update local history array so switching weeks immediately shows the new data
+      setHistory((prev) => {
+        const existing = prev.find((w) => w.weekId === selectedWeek);
+        if (existing) {
+          return prev.map((w) => w.weekId === selectedWeek ? { ...w, sleepData: updatedSleepData } : w);
+        }
+        return [...prev, { weekId: selectedWeek, sleepData: updatedSleepData }];
+      });
 
       try {
+        // NEW: Include weekId in the POST body
         await fetch('/api/sleep', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
-          body: JSON.stringify({ userName, sleepData: updatedSleepData }),
+          body: JSON.stringify({ userName, weekId: selectedWeek, sleepData: updatedSleepData }),
         });
       } catch (err) {
         setErrorMsg('Failed to save to database. Please try again.');
@@ -80,7 +104,6 @@ export default function Dashboard() {
         <p className="text-secondary mb-0">Welcome back, <strong className="text-light">{userName}</strong>!</p>
       </header>
 
-      {/* Third-Party API Data Section */}
       <section className="mb-4">
         <div className="card bg-dark border-secondary p-3 text-center">
           <p className="mb-1 fst-italic">"{dailyQuote.text}"</p>
@@ -111,9 +134,20 @@ export default function Dashboard() {
       <section className="card-style rounded p-4 mb-5">
         <div className="d-flex justify-content-between align-items-center mb-2">
           <h2 className="h4 mb-0">Weekly Sleep Log</h2>
-          <span className="badge bg-dark border border-secondary text-warning">Goal: {TARGET_HOURS.toFixed(1)} hrs/night</span>
+          
+          {/* NEW: Dropdown to toggle between the 4 weeks of the month */}
+          <select 
+            className="form-select bg-dark text-light border-secondary w-auto" 
+            value={selectedWeek}
+            onChange={(e) => setSelectedWeek(e.target.value)}
+          >
+            <option value="Week 1">Week 1</option>
+            <option value="Week 2">Week 2</option>
+            <option value="Week 3">Week 3</option>
+            <option value="Week 4">Week 4</option>
+          </select>
         </div>
-        <p className="small text-secondary mb-4">Click any day bar or use the form below to update sleep hours from previous days.</p>
+        <p className="small text-secondary mb-4">Click any day bar or use the form below to update sleep hours.</p>
 
         <div className="sleep-chart-container d-flex justify-content-around align-items-end p-3 mb-4">
           {days.map((day) => {

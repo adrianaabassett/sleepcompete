@@ -8,18 +8,24 @@ export function Unauthenticated(props) {
   const [displayError, setDisplayError] = useState(null);
 
   async function handleLogin() {
-    const response = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ userName, password }),
-    });
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ userName, password }),
+      });
 
-    if (response.ok) {
-      localStorage.setItem('userName', userName);
-      props.onLogin(userName);
-    } else {
-      const body = await response.json();
-      setDisplayError(`Login failed: ${body.msg}`);
+      if (response.ok) {
+        localStorage.setItem('userName', userName);
+        props.onLogin(userName);
+      } else {
+        // Attempt to read JSON, but if it's a 502 HTML page, it will jump to the catch block
+        const body = await response.json();
+        setDisplayError(`Login failed: ${body.msg}`);
+      }
+    } catch (err) {
+      // Catches server crashes, network drops, and invalid JSON responses
+      setDisplayError('Network error: The server might be offline or unreachable.');
     }
   }
 
@@ -29,18 +35,22 @@ export function Unauthenticated(props) {
       return;
     }
 
-    const response = await fetch('/api/auth/create', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ userName, password }),
-    });
+    try {
+      const response = await fetch('/api/auth/create', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ userName, password }),
+      });
 
-    if (response.ok) {
-      localStorage.setItem('userName', userName);
-      props.onLogin(userName);
-    } else {
-      const body = await response.json();
-      setDisplayError(`Registration failed: ${body.msg}`);
+      if (response.ok) {
+        localStorage.setItem('userName', userName);
+        props.onLogin(userName);
+      } else {
+        const body = await response.json();
+        setDisplayError(`Registration failed: ${body.msg}`);
+      }
+    } catch (err) {
+      setDisplayError('Network error: The server might be offline or unreachable.');
     }
   }
 
