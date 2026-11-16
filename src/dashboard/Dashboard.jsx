@@ -141,7 +141,6 @@ export default function Dashboard() {
         <div className="d-flex justify-content-between align-items-center mb-2">
           <h2 className="h4 mb-0">Weekly Sleep Log</h2>
           
-          {/* Dropdown to toggle between the 4 weeks of the month */}
           <select 
             className="form-select bg-dark text-light border-secondary w-auto" 
             value={selectedWeek}
