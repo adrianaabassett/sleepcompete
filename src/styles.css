@@ -28,7 +28,7 @@ body {
   margin: 0 auto;
 }
 
-/* Header & Navigation */
+
 header {
   text-align: center;
   padding: 1rem 0;
@@ -79,7 +79,6 @@ nav a:focus {
   color: var(--text-primary);
 }
 
-/* Main Content & Containers */
 main h2 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
@@ -106,14 +105,12 @@ section h2:first-of-type {
   border-radius: 8px;
 }
 
-/* 1. New Utility Class to consolidate padding and background */
 .card-style {
   padding: 1.5rem;
   background-color: var(--panel-background);
   margin-bottom: 1.5rem;
 }
 
-/* 2. Consolidated redundant border rules */
 .card-style,
 input,
 button {
@@ -121,7 +118,6 @@ button {
   border: 1px solid var(--border-color);
 }
 
-/* Form Controls & Form Container */
 .form-container {
   max-width: 400px;
   margin: 0 auto;
@@ -202,7 +198,7 @@ th {
 tbody tr:first-child {
   font-weight: bold;
   color: #ffc107; 
-}
+} 
 
 tbody tr:nth-child(-n+3) {
   background-color: var(--highlight-color);
@@ -214,7 +210,6 @@ tbody tr:focus-within {
   cursor: pointer;
 }
 
-/* Custom Sleep History Chart */
 .sleep-history-container {
   display: flex;
   flex-direction: column;
@@ -258,7 +253,7 @@ tbody tr:focus-within {
   width: 40px;
 }
 
-/* Footer */
+ 
 footer {
   text-align: center;
   padding: 1rem 0;
