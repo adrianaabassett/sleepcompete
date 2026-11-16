@@ -6,7 +6,7 @@ import Dashboard from './dashboard/Dashboard';
 import { AuthState } from './login/authState';
 
 export default function App() {
-  // Initialize authentication state from localStorage
+  
   const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
   const [authState, setAuthState] = useState(
     userName ? AuthState.Authenticated : AuthState.Unauthenticated
