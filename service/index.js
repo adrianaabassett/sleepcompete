@@ -10,7 +10,6 @@ app.use(express.static('public'));
 
 const authCookieName = 'token';
 
-
 app.get('/api/quote', async (req, res) => {
   try {
     const response = await fetch('https://api.quotable.io/random');
@@ -23,7 +22,6 @@ app.get('/api/quote', async (req, res) => {
     });
   }    
 });
-
 
 app.post('/api/auth/create', async (req, res) => {
   const { userName, password } = req.body;
@@ -65,7 +63,6 @@ function setAuthCookie(res, token) {
   });
 }
 
-
 const verifyAuth = async (req, res, next) => {
   const token = req.cookies[authCookieName];
   const user = await db.getUserByToken(token);
@@ -88,16 +85,20 @@ app.get('/api/sleep/:userName', verifyAuth, async (req, res) => {
 });
 
 app.post('/api/sleep', verifyAuth, async (req, res) => {
-  const { userName, weekId, sleepData } = req.body;
+  const { weekId, sleepData } = req.body;
   
-  if (userName && weekId && sleepData) {
-    await db.addSleepData(userName, weekId, sleepData);
+  if (req.userName && weekId && sleepData) {
+    await db.addSleepData(req.userName, weekId, sleepData);
     res.json({ success: true, weekId, sleepData });
   } else {
-    res.status(400).json({ error: 'Invalid payload. Requires userName, weekId, and sleepData' });
+    res.status(400).json({ error: 'Invalid payload. Requires weekId and sleepData' });
   }
 });
 
+// Return the application's default page if the path is unknown (fixes refresh 404s)
+app.use((_req, res) => {
+  res.sendFile('index.html', { root: 'public' });
+});
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 app.listen(port, () => {
