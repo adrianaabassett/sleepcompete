@@ -15,7 +15,7 @@ const sleepCollection = db.collection('sleep');
 })().catch((ex) => {
   console.log(`Unable to connect to database with ${url} because ${ex.message}`);
   process.exit(1);
-});
+}); 
 
 export async function getUser(userName) {
   return await userCollection.findOne({ userName: userName });
