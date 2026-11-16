@@ -87,7 +87,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [X] **Login placeholder** - Implemented a login form with proper label associations in login.html.
 - [X] **DB data placeholder** - Created a table in dashboard.html to represent data stored in the database. 
 - [X] **WebSocket placeholder** - Added a notification div in dashboard.html to serve as a placeholder for real-time data. 
-
+  
 ## 🚀 CSS deliverable
  
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed. 
