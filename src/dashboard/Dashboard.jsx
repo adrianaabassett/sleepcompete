@@ -24,7 +24,6 @@ export default function Dashboard() {
   
   const userName = localStorage.getItem('userName') || 'Insert User Name Here';
 
-  // Third-party API Fetch
   useEffect(() => {
     fetch('https://quote.cs260.click')
       .then((res) => res.json())
