@@ -26,3 +26,4 @@ db.config.json
 dbConfig.json
 testMongo/dbConfig.json
 testMongo/db.config.json
+service/dbConfig.json

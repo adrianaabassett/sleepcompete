@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "node index.js"
-  },  
+  },
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "bootstrap": "^5.3.8",
@@ -25,12 +25,18 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "vite": "^5.4.1"
-  }
+  },
+  "description": "[My Notes](notes.md)",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianaabassett/sleepcompete.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianaabassett/sleepcompete/issues"
+  },
+  "homepage": "https://github.com/adrianaabassett/sleepcompete#readme"
 }
-
-
-
-
-
-
-      

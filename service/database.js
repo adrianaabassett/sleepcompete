@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 import { randomUUID } from 'crypto';
-import config from '../../dbConfig.json' with { type: 'json' };
+import config from './dbConfig.json' with { type: 'json' };
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
