@@ -5,7 +5,7 @@ export default function Dashboard() {
     Mon: 8.0, Tue: 8.0, Wed: 8.0, Thu: 8.0, Fri: 8.0, Sat: 8.0, Sun: 8.0
   });
 
-  // NEW: State for tracking multiple weeks of data from the DB
+  // State for tracking multiple weeks of data from the DB
   const [history, setHistory] = useState([]);
   const [selectedWeek, setSelectedWeek] = useState('Week 1');
 
@@ -33,10 +33,17 @@ export default function Dashboard() {
       .catch(() => setDailyQuote({ text: 'Sleep is the best meditation.', author: 'Dalai Lama' }));
   }, []);
 
-  // NEW: Fetch all history for this user (up to 4 weeks)
+  // Fetch all history for this user (up to 4 weeks)
   useEffect(() => {
     fetch(`/api/sleep/${userName}`, { credentials: 'include' })
-      .then((res) => res.json())
+      .then(async (res) => {
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          setErrorMsg(errData.msg || 'Session expired. Please log in again to load saved sleep.');
+          return null;
+        }
+        return res.json();
+      })
       .then((data) => {
         if (Array.isArray(data)) {
           setHistory(data);
@@ -45,7 +52,7 @@ export default function Dashboard() {
       .catch((err) => console.error('Error fetching sleep data:', err));
   }, [userName]);
 
-  // NEW: Update the displayed chart whenever the user selects a different week
+  // Update the displayed chart whenever the user selects a different week
   useEffect(() => {
     const currentWeek = history.find((w) => w.weekId === selectedWeek);
     if (currentWeek && currentWeek.sleepData) {
@@ -82,13 +89,17 @@ export default function Dashboard() {
       });
 
       try {
-        // NEW: Include weekId in the POST body
-        await fetch('/api/sleep', {
+        const response = await fetch('/api/sleep', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
           body: JSON.stringify({ userName, weekId: selectedWeek, sleepData: updatedSleepData }),
         });
+
+        if (!response.ok) {
+          const errData = await response.json().catch(() => ({}));
+          setErrorMsg(errData.msg || errData.error || 'Failed to save: Please log in again.');
+        }
       } catch (err) {
         setErrorMsg('Failed to save to database. Please try again.');
       }
@@ -135,7 +146,7 @@ export default function Dashboard() {
         <div className="d-flex justify-content-between align-items-center mb-2">
           <h2 className="h4 mb-0">Weekly Sleep Log</h2>
           
-          {/* NEW: Dropdown to toggle between the 4 weeks of the month */}
+          {/* Dropdown to toggle between the 4 weeks of the month */}
           <select 
             className="form-select bg-dark text-light border-secondary w-auto" 
             value={selectedWeek}
