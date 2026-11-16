@@ -95,7 +95,6 @@ app.post('/api/sleep', verifyAuth, async (req, res) => {
   }
 });
 
-// Return the application's default page if the path is unknown (fixes refresh 404s)
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
