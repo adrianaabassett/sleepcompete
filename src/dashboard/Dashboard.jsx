@@ -49,7 +49,6 @@ export default function Dashboard() {
       .catch((err) => console.error('Error fetching sleep data:', err));
   }, [userName]);
 
-  // Update the displayed chart whenever the user selects a different week
   useEffect(() => {
     const currentWeek = history.find((w) => w.weekId === selectedWeek);
     if (currentWeek && currentWeek.sleepData) {
