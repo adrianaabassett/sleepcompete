@@ -152,7 +152,7 @@ export default function Dashboard() {
             <option value="Week 4">Week 4</option>
           </select>
         </div>
-        <p className="small text-secondary mb-4">Click any day bar or use the form below to update sleep hours.</p>
+        <p className="small text-secondary mb-4">Click any day bar or use the form below to update your sleep hours.</p>
 
         <div className="sleep-chart-container d-flex justify-content-around align-items-end p-3 mb-4">
           {days.map((day) => {
