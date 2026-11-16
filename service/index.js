@@ -79,7 +79,6 @@ app.get('/api/sleep/:userName', verifyAuth, async (req, res) => {
   const userName = req.params.userName;
   if (req.userName !== userName) return res.status(403).send({ msg: 'Forbidden' });
   
-  // Fetches up to 4 weeks of data
   const history = await db.getSleepData(userName);
   res.json(history);
 });
