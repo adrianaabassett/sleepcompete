@@ -31,7 +31,6 @@ export default function Dashboard() {
       .catch(() => setDailyQuote({ text: 'Sleep is the best meditation.', author: 'Dalai Lama' }));
   }, []);
 
-  // Fetch all history for this user (up to 4 weeks)
   useEffect(() => {
     fetch(`/api/sleep/${userName}`, { credentials: 'include' })
       .then(async (res) => {
