@@ -137,7 +137,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [X] I completed the prerequisites for this deliverable (Simon deployed, GitHub link, Git commits)
 - [X] **Stores data in MongoDB** - I stored both user data and their sleep data in MongoDB for secure keeping
 - [X] **Stores credentials in MongoDB** - I secured user credentials in MongoDB
-
+ 
 ## 🚀 WebSocket deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
