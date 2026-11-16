@@ -5,7 +5,6 @@ export default function Dashboard() {
     Mon: 8.0, Tue: 8.0, Wed: 8.0, Thu: 8.0, Fri: 8.0, Sat: 8.0, Sun: 8.0
   });
 
-  // State for tracking multiple weeks of data from the DB
   const [history, setHistory] = useState([]);
   const [selectedWeek, setSelectedWeek] = useState('Week 1');
 
