@@ -75,7 +75,6 @@ export default function Dashboard() {
       setSleepData(updatedSleepData);
       setErrorMsg('');
       
-      // Update local history array so switching weeks immediately shows the new data
       setHistory((prev) => {
         const existing = prev.find((w) => w.weekId === selectedWeek);
         if (existing) {
